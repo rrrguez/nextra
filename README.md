@@ -11,6 +11,13 @@ https://nextra.site
 
 ### Installation
 
+Worked with node v22.2.0 but not with v23.0.0:
+
+```
+➜  nextra-theme-docs git:(casiano) ✗ node --version
+v22.2.0
+```
+
 The Nextra repository uses [PNPM Workspaces](https://pnpm.io/workspaces) and
 [Turborepo](https://github.com/vercel/turborepo). To install dependencies, run
 `pnpm install` in the project root directory.
@@ -51,6 +58,30 @@ Any change to example/docs will be re-rendered instantly.
 
 If you update the core or theme packages, a rebuild is required. Or you can use
 the watch mode for both nextra and the theme in separated terminals.
+
+
+1. I went to the `packages/nextra` directory and run `pnpm dev`
+2. I opened a new terminal; set `nvm use v22` and then went to the `packages/nextra-theme-docs` directory and run `pnpm dev`
+3. I opened a new terminal; set `nvm use v22` and then went to
+
+It worked!
+
+```
+➜  docs git:(casiano) ✗ pnpm dev
+
+> example-docs@ dev /Users/casianorodriguezleon/campus-virtual/2223/learning/nextjs-learning/nextra-learning/nextra/examples/docs
+> next
+
+ ⚠ Port 3000 is in use, trying 3001 instead.
+ ⚠ Port 3001 is in use, trying 3002 instead.
+ ⚠ Port 3002 is in use, trying 3003 instead.
+  ▲ Next.js 15.0.1
+  - Local:        http://localhost:3003
+
+ ✓ Starting...
+   automatically enabled Fast Refresh for 2 custom loaders
+ ✓ Ready in 4.5s
+ ```
 
 ### Sponsors
 
