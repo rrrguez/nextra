@@ -70,34 +70,29 @@ pnpm build
   ```
 3. I opened a new terminal; set `nvm use v22` and then went to `examples/docs` and run:
 
-  ```bash
-  cd examples/docs
-  pnpm dev
   ```
+  ➜  docs git:(casiano) ✗ pnpm dev
+
+  > example-docs@ dev /Users/casianorodriguezleon/campus-virtual/2223/learning/nextjs-learning/nextra-learning/nextra/examples/docs
+  > next
+
+  ⚠ Port 3000 is in use, trying 3001 instead.
+  ⚠ Port 3001 is in use, trying 3002 instead.
+  ⚠ Port 3002 is in use, trying 3003 instead.
+    ▲ Next.js 15.0.1
+    - Local:        http://localhost:3003
+
+  ✓ Starting...
+    automatically enabled Fast Refresh for 2 custom loaders
+  ✓ Ready in 4.5s
+ ```
+
   Any changes to `example/docs` will be re-rendered instantly.
 
 Here we have used the watch mode for both nextra and the theme in separated terminals.
 Otherwise, if you update the core or theme packages, a rebuild is required. 
 
 
-It worked!
-
-```
-➜  docs git:(casiano) ✗ pnpm dev
-
-> example-docs@ dev /Users/casianorodriguezleon/campus-virtual/2223/learning/nextjs-learning/nextra-learning/nextra/examples/docs
-> next
-
- ⚠ Port 3000 is in use, trying 3001 instead.
- ⚠ Port 3001 is in use, trying 3002 instead.
- ⚠ Port 3002 is in use, trying 3003 instead.
-  ▲ Next.js 15.0.1
-  - Local:        http://localhost:3003
-
- ✓ Starting...
-   automatically enabled Fast Refresh for 2 custom loaders
- ✓ Ready in 4.5s
- ```
 
 ### Sponsors
 
