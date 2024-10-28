@@ -75,7 +75,7 @@ pnpm build
   pnpm dev
   ```
 
-Any change to `example/docs` will be re-rendered instantly.
+  Any changes to `example/docs` will be re-rendered instantly.
 
 Here we have used the watch mode for both nextra and the theme in separated terminals.
 Otherwise, if you update the core or theme packages, a rebuild is required. 
