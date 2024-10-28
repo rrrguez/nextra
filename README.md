@@ -46,19 +46,6 @@ pnpm build
 
 ### Development
 
-You can also debug them together with a website locally. For instance, to start
-`examples/docs` locally, run
-
-```bash
-cd examples/docs
-pnpm dev
-```
-
-Any change to `example/docs` will be re-rendered instantly.
-
-**If you update the core or theme packages, a rebuild is required. Or you can use the watch mode for both nextra and the theme in separated terminals.**
-
-
 1. I went to the `packages/nextra` directory and run `pnpm dev`. It uses [tsup](https://tsup.egoist.sh/) to bundle the code.
 2. I opened a new terminal; set `nvm use v22` and then went to the `packages/nextra-theme-docs` directory and run `pnpm dev`. It concurrently runs `tsup --watch` and `TAILWIND_MODE=watch pnpm postcss css/styles.css -o dist/style.css --watch`.
 
@@ -82,6 +69,20 @@ Any change to `example/docs` will be re-rendered instantly.
   }
   ```
 3. I opened a new terminal; set `nvm use v22` and then went to
+
+Then in a new terminal, we go to the `exaples/docs` folder and serve the website locally. For instance, to start
+`examples/docs` locally, run:
+
+```bash
+cd examples/docs
+pnpm dev
+```
+
+Any change to `example/docs` will be re-rendered instantly.
+
+Here we have used the watch mode for both nextra and the theme in separated terminals.
+Otherwise, if you update the core or theme packages, a rebuild is required. 
+
 
 It worked!
 
