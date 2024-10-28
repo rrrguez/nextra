@@ -74,7 +74,6 @@ pnpm build
   cd examples/docs
   pnpm dev
   ```
-
   Any changes to `example/docs` will be re-rendered instantly.
 
 Here we have used the watch mode for both nextra and the theme in separated terminals.
