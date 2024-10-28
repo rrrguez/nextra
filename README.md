@@ -47,21 +47,38 @@ pnpm build
 ### Development
 
 You can also debug them together with a website locally. For instance, to start
-examples/docs locally, run
+`examples/docs` locally, run
 
 ```bash
 cd examples/docs
 pnpm dev
 ```
 
-Any change to example/docs will be re-rendered instantly.
+Any change to `example/docs` will be re-rendered instantly.
 
-If you update the core or theme packages, a rebuild is required. Or you can use
-the watch mode for both nextra and the theme in separated terminals.
+**If you update the core or theme packages, a rebuild is required. Or you can use the watch mode for both nextra and the theme in separated terminals.**
 
 
-1. I went to the `packages/nextra` directory and run `pnpm dev`
-2. I opened a new terminal; set `nvm use v22` and then went to the `packages/nextra-theme-docs` directory and run `pnpm dev`
+1. I went to the `packages/nextra` directory and run `pnpm dev`. It uses [tsup](https://tsup.egoist.sh/) to bundle the code.
+2. I opened a new terminal; set `nvm use v22` and then went to the `packages/nextra-theme-docs` directory and run `pnpm dev`. It concurrently runs `tsup --watch` and `TAILWIND_MODE=watch pnpm postcss css/styles.css -o dist/style.css --watch`.
+
+  ```json 
+  ➜  nextra git:(casiano) ✗ cd packages/nextra-theme-docs 
+  ➜  nextra-theme-docs git:(casiano) ✗ jq '.scripts' package.json 
+  {
+    "build": "tsup",
+    "build:all": "pnpm build && pnpm build:tailwind",
+    "build:tailwind": "pnpm postcss css/styles.css -o dist/style.css --verbose",
+    "clean": "rimraf ./dist ./style.css",
+    "dev": "concurrently \"pnpm dev:layout\" \"pnpm dev:tailwind\"",
+    "dev:layout": "tsup --watch",
+    "dev:tailwind": "TAILWIND_MODE=watch pnpm postcss css/styles.css -o dist/style.css --watch",
+    "prepublishOnly": "pnpm build:all",
+    "test": "vitest run",
+    "types": "tsup --dts-only",
+    "types:check": "tsc --noEmit"
+  }
+  ```
 3. I opened a new terminal; set `nvm use v22` and then went to
 
 It worked!
